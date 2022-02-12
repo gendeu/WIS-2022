@@ -1,0 +1,96 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from warehouse-admin-dashboard.multipurposethemes.com/../main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Feb 2022 14:19:30 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://warehouse-admin-dashboard.multipurposethemes.com/images/favicon.ico">
+
+    <title>Warehouse Inventory System Admin - Dashboard</title>
+
+	<!-- Styles -->  
+	<link rel="stylesheet" href="{% static 'assets/style.css' %}">
+
+  {% comment %} MDB STYLING "https://mdbootstrap.com/docs/" {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/font-awesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/font-style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mdb-style.css' %}">
+
+  </head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+
+	<section class="vh-100">
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card shadow-2-strong" style="border-radius: 1rem;">
+						<div class="card-body p-5 text-center">
+				
+							<form method="post" action="{% url 'perform_login' %}">
+								<h3 class="mb-5">Sign in</h3>
+								{% csrf_token %}
+								{% if messages %}
+									{% for message in messages %}
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<strong>(Error)</strong> {{ message }}
+											<button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+										</div>
+									{% endfor %}
+								{% endif %}
+								<div class="form-outline mb-4">
+								<input type="text" name="username" id="typeUsernameX-2" class="form-control form-control-lg" />
+								<label class="form-label" for="typeUsernameX-2">Username</label>
+								</div>
+					
+								<div class="form-outline mb-4">
+								<input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg" />
+								<label class="form-label" for="typePasswordX-2">Password</label>
+								</div>
+					
+								<!-- Checkbox -->
+								<div class="form-check d-flex justify-content-start mb-4">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value=""
+									id="form1Example3"
+								/>
+								<label class="form-check-label" for="form1Example3"> Remember password </label>
+								</div>
+					
+								<button type="submit" class="btn btn-primary btn-lg btn-block" >Login</button>
+					
+								<hr class="my-4">
+							</form>
+						{% comment %} 		
+								<button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;" type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
+								<button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+						{% endcomment %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</body>
+
+<!-- Scripts -->  
+<script src="{% static 'assets/jquery.js' %}"></script>
+
+{% comment %} MDB SCRIPT "https://mdbootstrap.com/docs/" {% endcomment %}
+<script src="{% static 'assets/mdb-script.js' %}"></script>
+
+<script>
+  {% include 'dashboard/functions/scripts.js' %}
+</script>
+
+</html>

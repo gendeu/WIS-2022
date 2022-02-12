@@ -1,0 +1,10 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<h1>Users List Page</h1>
+<button class="btn btn-primary" type="button">
+    <a href="{% url 'render_signup' %}" class="text-white" style="text-decoration: none;">Create new user</a>
+</button>
+{% include 'dashboard/includes/users_list.html' %}
+{% endblock %} 
+

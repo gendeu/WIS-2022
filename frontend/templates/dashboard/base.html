@@ -1,0 +1,50 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from warehouse-admin-dashboard.multipurposethemes.com/../main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Feb 2022 14:19:30 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://warehouse-admin-dashboard.multipurposethemes.com/images/favicon.ico">
+
+    <title>Warehouse Inventory System Admin - Dashboard</title>
+
+	<!-- Styles -->  
+	<link rel="stylesheet" href="{% static 'assets/style.css' %}">
+
+  {% comment %} MDB STYLING "https://mdbootstrap.com/docs/" {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/font-awesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/font-style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mdb-style.css' %}">
+
+  </head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+
+	{% include 'dashboard/includes/navbar.html' %}
+
+  <div class="p-5">
+    {% block content %}
+		{% include 'dashboard/pages/index.html' %}
+    {% endblock %} 
+  </div>
+  
+</body>
+
+<!-- Scripts -->  
+<script src="{% static 'assets/jquery.js' %}"></script>
+
+{% comment %} MDB SCRIPT "https://mdbootstrap.com/docs/" {% endcomment %}
+<script src="{% static 'assets/mdb-script.js' %}"></script>
+
+<script>
+  {% include 'dashboard/functions/scripts.js' %}
+</script>
+
+
+    </html>
