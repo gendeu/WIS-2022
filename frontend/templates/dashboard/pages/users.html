@@ -1,10 +1,17 @@
 {% extends "../base.html" %}
 
 {% block content %}
-<h1>Users List Page</h1>
-<button class="btn btn-primary" type="button">
-    <a href="{% url 'render_signup' %}" class="text-white" style="text-decoration: none;">Create new user</a>
-</button>
+  <div class="d-flex mb-3">
+    <div class="p-2">
+        <h1>Users List Page</h1>
+    </div>
+    <div class="ms-auto p-2">
+        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#add_user_modal">
+            Add New User
+        </button>
+    </div>
+  </div>
+{% include 'dashboard/modals/add_user.html' %}
 {% include 'dashboard/includes/users_list.html' %}
 {% endblock %} 
 

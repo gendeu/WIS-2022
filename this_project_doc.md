@@ -41,3 +41,6 @@ create urls.py to app_folder (for routes)
 BACKEND USES - REST API (https://www.django-rest-framework.org/ & https://www.django-rest-framework.org/topics/documenting-your-api/)
 
 FRONTED USES - BOOTSTRAP5(https://mdbootstrap.com/docs/standard/getting-started/installation/)
+
+
+https://soshace.com/how-to-send-multiple-forms-with-ajax-formdata-in-django/

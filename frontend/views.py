@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib import messages
 import requests
-
+from .models import Users
 # Create your views here.
 
 def render_login(request):
@@ -28,7 +28,8 @@ def render_home(request):
     return render(request, "dashboard/base.html")
 
 def show_users(request):
-    res=requests.get('http://127.0.0.1:8000/api/user-list/').json()
+    # res=requests.get('http://127.0.0.1:8000/api/user-list/').json()
+    res=Users.objects.all().order_by('-id')
     return render(request,'dashboard/pages/users.html',{'response':res})
 
 def render_signup(request):
@@ -51,12 +52,23 @@ def perform_logout(request):
 
 
 def perform_register(request):
-    full_name = request.POST.get('full_name')
-    data = {
-            'full_name': full_name
-    }
-    # JsonResponse(data)
-    return JsonResponse(data)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        image = request.FILES.get('image')
+        # image = request.FILES.get('image') # request.FILES used for to get files
+
+        new_user = Users(
+            username=username,
+            password=password,
+            email=email,
+            image=image
+        )
+        new_user.save()
+    
+    return HttpResponse("Users has been Added!")
+    # return render(request, 'dashboard/pages/users.html')
 
 # def render_success(request):
 #     return render(request, "welcome/success.html")
